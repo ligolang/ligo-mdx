@@ -1,0 +1,35 @@
+opam-version: "2.0"
+maintainer: "YOUR EMAIL ADDRESS"
+authors: ["YOUR NAME"]
+
+homepage: "https://github.com/USERNAME/proj"
+bug-reports: "https://github.com/USERNAME/proj/issues"
+dev-repo: "git+https://github.com/USERNAME/proj.git"
+version: "dev"
+
+# TODO Pick the relevant SPDX identifier <https://spdx.org/licenses/>
+license: "MIT"
+
+synopsis: "Ligo-mdx"
+
+description: """
+Ligo-mdx use ligo compiler to test snippets present in markdowns.
+"""
+
+build: [
+  ["dune" "subst"] {pinned}
+  ["dune" "build" "-p" name "-j" jobs]
+]
+
+run-test: ["dune" "runtest" "-p" name]
+
+depends: [
+  # Jane Street Core
+  "core" {>= "v0.15.0" & < "v0.16.0"}
+  "core_kernel" { >= "v0.15.0" & < "v0.16.0"}
+  "ocamlgraph"
+  "dune"
+  "lwt" {= "5.6.1"}
+  "ocamlformat" { = "0.25.1" }
+  "alcotest" {with-test}
+]

@@ -1,0 +1,4 @@
+version=0.25.1
+profile=janestreet
+let-binding-spacing=sparse
+margin=90
